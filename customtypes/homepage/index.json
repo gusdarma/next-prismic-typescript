@@ -1,0 +1,18 @@
+{
+  "id": "homepage",
+  "label": "Homepage",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "image": {
+        "config": {
+          "label": "image",
+          "constraint": {},
+          "thumbnails": []
+        },
+        "type": "Image"
+      }
+    }
+  }
+}
