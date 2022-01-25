@@ -28,6 +28,37 @@ Install yarn
 yarn install
 ```
 
+Env File
+
+On your root roject folder, rename **.env.sample** to **.env**
+
+```
+mv .env.sample .env
+```
+
+Run the Project
+
+```
+yarn dev
+```
+
+See your project on http://localhost:3000. Here is some page that already setup on prismic:
+
+- http://localhost:3000/
+- http://localhost:3000/about
+- http://localhost:3000/blog
+- http://localhost:3000/blog/blog-first
+- http://localhost:3000/blog/blog-second
+- http://localhost:3000/contact
+- http://localhost:3000/fr-fr
+- http://localhost:3000/fr-fr/about
+- http://localhost:3000/fr-fr/blog
+- http://localhost:3000/fr-fr/blog/blog-first
+- http://localhost:3000/fr-fr/blog/blog-second
+- http://localhost:3000/fr-fr/contact
+
+# Use your own Prismic's Project
+
 Create [Prismic Project](https://prismic.io/). And then create Custom Types, from this boilerplate you can follow to create 2 Custom Types: **Page** and **Blog**.
 
 ## Custom Type Page
@@ -44,24 +75,6 @@ Create [Prismic Project](https://prismic.io/). And then create Custom Types, fro
 2. Add **Meta Tab** to define meta for each pages. on meta tab, add _slug_ field as uid to define slug for each blogs. And also add _meta_title_, _meta_description_ and others for SEO purpose.
    ![Prismic - Custom types Blogs](/public/readme/blog-meta.png)
 
-## Env File
-
-On your Prismic go to Settings > API & Security > Content API. Copy your API endpoint, the API content seems like this : https://prismic-next-boilerplate.prismic.io/api/v2
-
-On your root roject folder, rename **.env.sample** to **.env**
-
-```
-mv .env.sample .env
-```
-
-Open your .env file and change "NEXT_PUBLIC_PRISMIC_API" with your own.
-
-## Run the Project
-
-```
-yarn dev
-```
-
-See your peoject on http://localhost:3000
+Open your .env file and change "NEXT_PUBLIC_PRISMIC_API" with your own. On your Prismic go to Settings > API & Security > Content API. Copy your API endpoint, the API content seems like this : https://prismic-next-boilerplate.prismic.io/api/v2
 
 Good luck :)
