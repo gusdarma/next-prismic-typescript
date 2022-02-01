@@ -14,13 +14,15 @@ import linkResolver from "@/lib/linkResolver";
 interface PageProps {
   document: Document;
   archive: any;
+  mainMenu: any;
 }
 
-export default function Category({ document, archive }: PageProps) {
+export default function Category({ document, archive, mainMenu }: PageProps) {
   const router = useRouter();
 
   console.log(document, "ini documentnya");
   console.log(archive, "ini archive");
+  console.log(mainMenu.data, "main menu");
 
   if (router.isFallback) {
     return <p>yuhu........</p>;
@@ -37,6 +39,7 @@ export default function Category({ document, archive }: PageProps) {
         <Header
           title={PrismicDom.RichText.asText(document.data.title)}
           altLang={document.alternate_languages}
+          mainMenu={mainMenu.data}
         />
         <h1 className="pt-10 text-4xl text-center">
           {PrismicDom.RichText.asText(document.data.title)}
@@ -160,6 +163,10 @@ export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
     lang: finalLang,
   });
 
+  const mainMenu = await client().query(
+    Prismic.Predicates.at("document.type", "main_menu")
+  );
+
   let archive;
   if (checkIsArchive) {
     archive = await client().query(
@@ -172,6 +179,7 @@ export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
     props: {
       document,
       archive: archive ? archive.results : ``,
+      mainMenu: mainMenu ? mainMenu.results[0] : ``,
     },
     revalidate: 1,
   };
